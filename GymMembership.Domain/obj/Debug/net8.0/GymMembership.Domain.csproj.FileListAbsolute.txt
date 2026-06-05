@@ -1,0 +1,11 @@
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\bin\Debug\net8.0\GymMembership.Domain.deps.json
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\bin\Debug\net8.0\GymMembership.Domain.dll
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\bin\Debug\net8.0\GymMembership.Domain.pdb
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.AssemblyInfoInputs.cache
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.AssemblyInfo.cs
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.dll
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\refint\GymMembership.Domain.dll
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.pdb
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\ref\GymMembership.Domain.dll

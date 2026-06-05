@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "MembershipPlanController",
+    "Method": "CreateMembershipPlan",
+    "RelativePath": "AdminCreateMembershipPlan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "CreateMembershipPlanCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymMembership.WebApi.Controllers.MembersController",
+    "Method": "Register",
+    "RelativePath": "api/Members/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "RegisterMemberCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
