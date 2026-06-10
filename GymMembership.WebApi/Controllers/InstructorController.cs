@@ -12,6 +12,8 @@ public class InstructorController : ControllerBase
         _mediator = mediator;
     }
     [HttpPost("register_instructor")]
+    [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Guid))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> RegisterInstructor([FromBody] RegisterInstructorCommand command, CancellationToken cancellationToken)
     {
         var instructorId = await _mediator.Send(command, cancellationToken);
