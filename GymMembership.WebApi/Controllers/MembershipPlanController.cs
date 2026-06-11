@@ -32,4 +32,16 @@ public class MembershipPlanController : ControllerBase
 
         return Ok(result);
     }
+    [HttpDelete("membershipPlanDelete/{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+    {
+        var command = new DeleteMembershipPlanCommand(id);
+
+        var memberId = await _mediator.Send(command, cancellationToken);
+
+        return Ok(memberId);
+    }
 }
