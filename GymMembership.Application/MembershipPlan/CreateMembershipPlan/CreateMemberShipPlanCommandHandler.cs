@@ -25,7 +25,7 @@ public class CreateMemberShipPlanCommandHandler : IRequestHandler<CreateMembersh
         {
             Description = request.Description,
             Id = membershipID,
-            DurationMonths = request.DurationMonths,
+            DurationDays = request.DurationDays,
             Name = request.Name,
             Price = request.Price,
             Tier = request.Tier

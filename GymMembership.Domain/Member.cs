@@ -12,5 +12,6 @@
         public string EmergencyContact { get; set; } = string.Empty;
         public string EmergencyContactPhone { get; set; } = string.Empty;
         public MembershipPlan Membership = new MembershipPlan();
+        public ICollection<ScheduledClass> BookedClasses { get; set; } = new List<ScheduledClass>();
     }
 }

@@ -12,7 +12,8 @@ namespace GymMembership.Domain
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int Tier { get; set; } = 0;
-        public int DurationMonths { get; set; }
+        public int DurationDays { get; set; }
         public decimal Price { get; set; }
+        public bool IsRecurring { get; set; }
     }
 }

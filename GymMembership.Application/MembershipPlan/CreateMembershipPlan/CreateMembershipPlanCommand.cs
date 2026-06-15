@@ -4,6 +4,6 @@ public record CreateMembershipPlanCommand(
     string Name,
     string Description,
     int Tier,
-    int DurationMonths,
+    int DurationDays,
     decimal Price
 ) : IRequest<Guid>;

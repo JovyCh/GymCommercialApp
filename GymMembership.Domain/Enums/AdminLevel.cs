@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace GymMembership.Domain.Enums
 {
-    public enum SubscriptionStatus
+    public enum AdminLevel
     {
-        Active = 0,
-        PastDue = 1,
-        Suspended = 2,
-        Cancelled = 3
+        Basic = 0,
+        Super = 1,
+        Owner = 2
     }
 }

@@ -5,6 +5,7 @@ C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\G
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.AssemblyInfoInputs.cache
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.AssemblyInfo.cs
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.sourcelink.json
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.dll
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\refint\GymMembership.Domain.dll
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Domain\obj\Debug\net8.0\GymMembership.Domain.pdb
