@@ -27,6 +27,7 @@ public class CreateScheduledClassCommandHandler : IRequestHandler<CreateSchedule
             request.DurationInMinutes)
             .WithInstructor(request.InstructorId)   
             .WithMaxCapacity(request.MaxCapacity)   
+            .ForDifficultyLevel(request.DifficultyLevel)
             .Build();                               
 
         _context.ScheduledClasses.Add(newClass);

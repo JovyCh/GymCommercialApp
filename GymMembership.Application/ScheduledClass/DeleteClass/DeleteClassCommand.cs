@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GymMembership.Domain;
 using MediatR;
 
-public record SearchMembersQuery(Guid? Id, string? Name) : IRequest<List<Member>>;
+public record DeleteClassCommand(Guid Id) : IRequest<Guid>;

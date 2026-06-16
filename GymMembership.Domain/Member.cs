@@ -11,7 +11,7 @@
         public DateTime DateJoined { get; set; } = DateTime.MinValue;
         public string EmergencyContact { get; set; } = string.Empty;
         public string EmergencyContactPhone { get; set; } = string.Empty;
-        public MembershipPlan Membership = new MembershipPlan();
+        public Subscription CurrentSubscription { get; set; } = null!;
         public ICollection<ScheduledClass> BookedClasses { get; set; } = new List<ScheduledClass>();
     }
 }

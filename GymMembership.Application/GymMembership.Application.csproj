@@ -15,4 +15,8 @@
     <ProjectReference Include="..\GymMembership.Domain\GymMembership.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="User\" />
+  </ItemGroup>
+
 </Project>

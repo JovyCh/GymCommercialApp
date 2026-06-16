@@ -5,5 +5,6 @@ public record CreateMembershipPlanCommand(
     string Description,
     int Tier,
     int DurationDays,
-    decimal Price
+    decimal Price,
+    bool IsRecurring
 ) : IRequest<Guid>;

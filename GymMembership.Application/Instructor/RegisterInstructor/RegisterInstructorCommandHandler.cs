@@ -10,26 +10,26 @@ using MediatR;
     public class RegisterInstructorCommandHandler : IRequestHandler<RegisterInstructorCommand, Guid>
     {
         private readonly IApplicationDbContext _context;
-        public RegisterInstructorCommandHandler(IApplicationDbContext context) {
+        private readonly IUserFactory _userFactory;
+        public RegisterInstructorCommandHandler(IApplicationDbContext context, IUserFactory userFactory) {
             _context = context;
+            _userFactory = userFactory;
         }
 
         public async Task<Guid> Handle(RegisterInstructorCommand request, CancellationToken cancellationToken)
         {
             var instructorId = Guid.NewGuid();
-            var newInstructor = new Instructor
-            {
-                Id = instructorId,
-                Name = request.Name,
-                IdentityUserId = request.IdentityUserId,
-                Email = request.Email,
-                Phone = request.Phone,
-                Address = request.Address,
-                EmergencyContact = request.EmergencyContact,
-                EmergencyContactPhone = request.EmergencyContactPhone,
-                Certifications = request.Certifications,
-                DateJoined = DateTime.UtcNow
-            };
+            var newInstructor = _userFactory.CreateInstructor(
+            
+                request.Name,
+                request.IdentityUserId,
+                request.Email,
+                request.Phone,
+                request.Address,
+                request.EmergencyContact,
+                request.EmergencyContactPhone,
+                request.Certifications
+            );
 
             _context.Instructors.Add(newInstructor);
 

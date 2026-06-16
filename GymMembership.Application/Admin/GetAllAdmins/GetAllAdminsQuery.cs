@@ -6,4 +6,4 @@ using System.Threading.Tasks;
 using GymMembership.Domain;
 using MediatR;
 
-public record SearchMembersQuery(Guid? Id, string? Name) : IRequest<List<Member>>;
+public record GetAllAdminsQuery : IRequest<List<Admin>?>;

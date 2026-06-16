@@ -28,7 +28,8 @@ public class CreateMemberShipPlanCommandHandler : IRequestHandler<CreateMembersh
             DurationDays = request.DurationDays,
             Name = request.Name,
             Price = request.Price,
-            Tier = request.Tier
+            Tier = request.Tier,
+            IsRecurring = request.IsRecurring
         };
 
         _context.MembershipPlans.Add(newMembershipPlan);
