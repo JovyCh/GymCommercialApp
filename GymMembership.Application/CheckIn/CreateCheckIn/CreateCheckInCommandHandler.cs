@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GymMembership.Application.Interfaces;
+using GymMembership.Application.Common.Interfaces;
 using GymMembership.Domain;
 using MediatR;
 

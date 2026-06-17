@@ -51,11 +51,10 @@ namespace GymMembership.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -170,12 +169,7 @@ namespace GymMembership.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ScheduledClassId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ScheduledClassId");
 
                     b.ToTable("Members");
                 });
@@ -190,8 +184,11 @@ namespace GymMembership.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DurationMonths")
+                    b.Property<int>("DurationDays")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsRecurring")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -245,13 +242,27 @@ namespace GymMembership.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("InstructorId")
+                    b.Property<string>("DifficultyLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DurationInMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("InstructorId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsCancelled")
+                        .HasColumnType("bit");
 
                     b.Property<int>("MaxCapacity")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Room")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -280,6 +291,12 @@ namespace GymMembership.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRecurring")
+                        .HasColumnType("bit");
+
                     b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
 
@@ -295,16 +312,35 @@ namespace GymMembership.Infrastructure.Migrations
                     b.Property<string>("PaymentProcessorCustomerId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MemberId");
+                    b.HasIndex("MemberId")
+                        .IsUnique();
 
                     b.HasIndex("MembershipPlanId");
 
                     b.ToTable("Subscriptions");
+                });
+
+            modelBuilder.Entity("MemberScheduledClass", b =>
+                {
+                    b.Property<Guid>("AttendeesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookedClassesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AttendeesId", "BookedClassesId");
+
+                    b.HasIndex("BookedClassesId");
+
+                    b.ToTable("MemberScheduledClass");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -516,20 +552,11 @@ namespace GymMembership.Infrastructure.Migrations
                     b.Navigation("Member");
                 });
 
-            modelBuilder.Entity("GymMembership.Domain.Member", b =>
-                {
-                    b.HasOne("GymMembership.Domain.ScheduledClass", null)
-                        .WithMany("Members")
-                        .HasForeignKey("ScheduledClassId");
-                });
-
             modelBuilder.Entity("GymMembership.Domain.ScheduledClass", b =>
                 {
                     b.HasOne("GymMembership.Domain.Instructor", "Instructor")
                         .WithMany()
-                        .HasForeignKey("InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InstructorId");
 
                     b.Navigation("Instructor");
                 });
@@ -537,8 +564,8 @@ namespace GymMembership.Infrastructure.Migrations
             modelBuilder.Entity("GymMembership.Domain.Subscription", b =>
                 {
                     b.HasOne("GymMembership.Domain.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId")
+                        .WithOne("CurrentSubscription")
+                        .HasForeignKey("GymMembership.Domain.Subscription", "MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -551,6 +578,21 @@ namespace GymMembership.Infrastructure.Migrations
                     b.Navigation("Member");
 
                     b.Navigation("MembershipPlan");
+                });
+
+            modelBuilder.Entity("MemberScheduledClass", b =>
+                {
+                    b.HasOne("GymMembership.Domain.Member", null)
+                        .WithMany()
+                        .HasForeignKey("AttendeesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GymMembership.Domain.ScheduledClass", null)
+                        .WithMany()
+                        .HasForeignKey("BookedClassesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -604,9 +646,10 @@ namespace GymMembership.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GymMembership.Domain.ScheduledClass", b =>
+            modelBuilder.Entity("GymMembership.Domain.Member", b =>
                 {
-                    b.Navigation("Members");
+                    b.Navigation("CurrentSubscription")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

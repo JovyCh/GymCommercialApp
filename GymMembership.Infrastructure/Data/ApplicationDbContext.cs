@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using GymMembership.Domain;
-using GymMembership.Application.Interfaces;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using GymMembership.Application.Common.Interfaces;
 
 namespace GymMembership.Infrastructure.Data;
 

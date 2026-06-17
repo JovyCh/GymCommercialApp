@@ -1,4 +1,4 @@
-﻿using GymMembership.Application.Interfaces;
+﻿using GymMembership.Application.Common.Interfaces;
 using GymMembership.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

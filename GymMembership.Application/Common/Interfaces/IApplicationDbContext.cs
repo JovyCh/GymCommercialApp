@@ -1,7 +1,7 @@
 ﻿using GymMembership.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace GymMembership.Application.Interfaces
+namespace GymMembership.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {

@@ -11,8 +11,16 @@ builder.Services.AddSwaggerGen();
 builder.Services. AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
-    .AddEntityFrameworkStores<GymMembership.Infrastructure.Data.ApplicationDbContext>();
+builder.Services.AddIdentityCore<IdentityUser>(options => {
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+})
+.AddEntityFrameworkStores<GymMembership.Infrastructure.Data.ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+builder.Services.AddIdentityApiEndpoints<IdentityUser>();
 
 var app = builder.Build();
 

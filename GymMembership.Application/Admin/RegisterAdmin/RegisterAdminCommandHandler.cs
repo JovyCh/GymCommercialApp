@@ -1,7 +1,8 @@
-﻿using GymMembership.Application.Interfaces;
+﻿using GymMembership.Application.Common.Interfaces;
 using GymMembership.Domain;
 using GymMembership.Domain.Enums;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -9,18 +10,21 @@ public class RegisterAdminCommandHandler : IRequestHandler<RegisterAdminCommand,
 {
     private readonly IApplicationDbContext _context;
     private readonly IUserFactory _userFactory;
-    public RegisterAdminCommandHandler(IApplicationDbContext context, IUserFactory userFactory)
+    private readonly IIdentityService _identityService;
+    public RegisterAdminCommandHandler(IApplicationDbContext context, IUserFactory userFactory, IIdentityService identityService)
     {
         _context = context;
         _userFactory = userFactory;
+        _identityService = identityService;
     }
 
     public async Task<Guid> Handle(RegisterAdminCommand request, CancellationToken cancellationToken)
     {
+        string identityUserId = await _identityService.CreateUserAsync(request.Email, request.Password);
 
         var newAdmin = _userFactory.CreateAdmin(
             request.Name,
-            request.IdentityUserId,
+            identityUserId,
             request.Email,
             request.Phone,
             request.Address,

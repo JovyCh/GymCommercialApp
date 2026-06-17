@@ -2,6 +2,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
+[ApiController]
+[Route("api/[controller]")]
 public class AdminController : ControllerBase
 {
     private readonly ISender _mediator;

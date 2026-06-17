@@ -7,13 +7,13 @@ using MediatR;
 
 public record RegisterInstructorCommand(
     string Name,
-    string IdentityUserId,
     string Email,
     string Phone,
     string Address,
     DateTime DateJoined,
     string EmergencyContact,
     string EmergencyContactPhone,
-    List<string> Certifications
+    List<string> Certifications,
+    string Password
 ) : IRequest<Guid>;
 
