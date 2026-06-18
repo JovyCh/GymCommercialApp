@@ -14,8 +14,8 @@ namespace GymMembership.Domain
         public string Description { get; set; } = string.Empty;
         public DateTime StartTime { get; set; } = DateTime.UtcNow;
         public int MaxCapacity { get; set; } = 0;
-        public ICollection<Member> Attendees { get; set; } = new List<Member>();
-        public int AppliedMembers => Attendees.Count;
+        public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
+        public int AppliedMembers => Attendances?.Count(a => !a.IsCancelled) ?? 0;
         public Guid? InstructorId { get; set; }
         public Instructor Instructor { get; set; } = null!;
         public bool IsCancelled { get; set; } = false;

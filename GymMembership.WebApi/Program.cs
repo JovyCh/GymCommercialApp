@@ -1,6 +1,7 @@
 ﻿using GymMembership.Application;
 using GymMembership.Infrastructure;
 using Microsoft.AspNetCore.Identity;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,9 @@ builder.Services.AddIdentityCore<IdentityUser>(options => {
 .AddDefaultTokenProviders();
 
 builder.Services.AddIdentityApiEndpoints<IdentityUser>();
+
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
 
 var app = builder.Build();
 

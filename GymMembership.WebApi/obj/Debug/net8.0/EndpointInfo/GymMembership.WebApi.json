@@ -255,6 +255,161 @@
         }
       }
     },
+    "/api/Attendance": {
+      "post": {
+        "tags": [
+          "Attendance"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAttendanceCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAttendanceCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAttendanceCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Attendance/markAttendance": {
+      "patch": {
+        "tags": [
+          "Attendance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Attendance/cancelAttendance": {
+      "patch": {
+        "tags": [
+          "Attendance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/CheckIn/checkIn": {
       "post": {
         "tags": [
@@ -1482,6 +1637,40 @@
         "type": "integer",
         "format": "int32"
       },
+      "Attendance": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "memberId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "member": {
+            "$ref": "#/components/schemas/Member"
+          },
+          "scheduledClassId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scheduledClass": {
+            "$ref": "#/components/schemas/ScheduledClass"
+          },
+          "bookedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "attended": {
+            "type": "boolean"
+          },
+          "isCancelled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "CheckIn": {
         "type": "object",
         "properties": {
@@ -1499,6 +1688,20 @@
           "loggedAt": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAttendanceCommand": {
+        "type": "object",
+        "properties": {
+          "memberId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scheduledClassId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -1716,6 +1919,13 @@
               "$ref": "#/components/schemas/ScheduledClass"
             },
             "nullable": true
+          },
+          "classAttendances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attendance"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1927,10 +2137,10 @@
             "type": "integer",
             "format": "int32"
           },
-          "attendees": {
+          "attendances": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Member"
+              "$ref": "#/components/schemas/Attendance"
             },
             "nullable": true
           },

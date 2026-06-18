@@ -21,6 +21,8 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicatio
     public DbSet<ScheduledClass> ScheduledClasses => Set<ScheduledClass>();
     public DbSet<Subscription> Subscriptions => Set<Subscription>();
     public DbSet<PaymentLog> PaymentLogs => Set<PaymentLog>();
+    public DbSet<Attendance> Attendances => Set<Attendance>();
+
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -32,5 +34,8 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicatio
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
+        modelBuilder.Entity<ScheduledClass>().Ignore(c => c.AppliedMembers);
+        modelBuilder.Entity<Attendance>().ToTable("Attendances");
     }
 }

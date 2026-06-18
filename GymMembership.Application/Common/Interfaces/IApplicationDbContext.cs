@@ -13,6 +13,7 @@ namespace GymMembership.Application.Common.Interfaces
         DbSet<ScheduledClass> ScheduledClasses { get; }
         DbSet<Subscription> Subscriptions { get; }
         DbSet<PaymentLog> PaymentLogs { get; }
+        DbSet<Attendance> Attendances {  get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

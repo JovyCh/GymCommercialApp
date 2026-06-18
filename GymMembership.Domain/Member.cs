@@ -13,5 +13,6 @@
         public string EmergencyContactPhone { get; set; } = string.Empty;
         public Subscription CurrentSubscription { get; set; } = null!;
         public ICollection<ScheduledClass> BookedClasses { get; set; } = new List<ScheduledClass>();
+        public ICollection<Attendance> ClassAttendances { get; set; } = new List<Attendance>();
     }
 }

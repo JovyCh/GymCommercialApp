@@ -1,3 +1,9 @@
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.AssemblyInfo.cs
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.sourcelink.json
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\net8.0\GymMembership.Infrastructure.deps.json
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\net8.0\GymMembership.Infrastructure.runtimeconfig.json
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\net8.0\GymMembership.Infrastructure.dll
@@ -6,12 +12,6 @@ C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\net8.0\GymMembership.Domain.dll
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\net8.0\GymMembership.Application.pdb
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\bin\Debug\net8.0\GymMembership.Domain.pdb
-C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.AssemblyInfo.cs
-C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.sourcelink.json
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembe.6B2CEA1C.Up2Date
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\GymMembership.Infrastructure.dll
 C:\Users\Jovy\source\repos\GymMembership\GymMembership.Infrastructure\obj\Debug\net8.0\refint\GymMembership.Infrastructure.dll
