@@ -7,7 +7,7 @@
 * **Build Tooling:** Vite
 * **API Client:** Axios
 * **Routing:** React Router DOM
-* 
+  
 ### Backend (Web API & Core Logic)
 * **Architecture:** Clean Architecture
 * **Design Patterns:** CQRS via MediatR
