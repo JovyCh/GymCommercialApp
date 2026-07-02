@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import agent from './api/agent';
-import type { CreateMemberCommand } from './types';
+import agent from './api/axiosConfig';
+import type { CreateMemberCommand } from './types/MemberDto';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import MemberList from './pages/MemberList';
+import AdminList from './pages/AdminList';
 
-function App() {
+function RegisterMemberForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -94,6 +97,39 @@ function App() {
         </button>
       </form>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <nav style={{ 
+        padding: '15px 30px', 
+        background: '#1a1a1a', 
+        display: 'flex', 
+        gap: '25px', 
+        fontFamily: 'sans-serif' 
+      }}>
+        <Link to="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
+          📝 Register Member
+        </Link>
+        <Link to="/members" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
+          📋 View Member List
+        </Link>
+        <Link to="/admin" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
+          📋 View Admin List
+        </Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<RegisterMemberForm />} />
+        
+        <Route path="/members" element={<MemberList />} />
+
+        <Route path="/admin" element={<AdminList />} />
+
+      </Routes>
+    </Router>
   );
 }
 
