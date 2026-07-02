@@ -1,7 +1,15 @@
 # Gym Membership Portal
-
 ## Tech Stack & Architecture
-* **Architecture:** Clean Architecture (Domain-Driven design principles)
-* **Design Patterns:** CQRS (Command Query Responsibility Segregation) via MediatR
-* **Database Management:** Entity Framework Core (SQL Server LocalDB)
+
+### Frontend (User Interface)
+* **Framework:** React 18+
+* **Language Runtime:** TypeScript
+* **Build Tooling:** Vite
+* **API Client:** Axios
+* **Routing:** React Router DOM
+  
+### Backend (Web API & Core Logic)
+* **Architecture:** Clean Architecture
+* **Design Patterns:** CQRS via MediatR
+* **Database Management:** Entity Framework Core
 * **Security:** ASP.NET Core Identity API endpoints
