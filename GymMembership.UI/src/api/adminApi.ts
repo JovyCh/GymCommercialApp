@@ -15,7 +15,11 @@ export const adminApi = {
 //     axiosInstance.delete<void>(`/Members/memberDelete/${id}`)
 //       .then((res: AxiosResponse<void>) => res.data),
 
-//   search: (params: { name?: string }) => 
-//     axiosInstance.get<MemberDto[]>('/Members/search', { params })
-//       .then((res: AxiosResponse<MemberDto[]>) => res.data),
+  delete: (id:string) =>
+    axiosInstance.delete<void>(`/Admin/deleteAdmin/${id}`)
+      .then((res: AxiosResponse<void>) => res.data),
+
+  search: (params: { name?: string }) => 
+    axiosInstance.get<AdminDto[]>('/Admin/searchAdmin', { params })
+      .then((res: AxiosResponse<AdminDto[]>) => res.data),
 };

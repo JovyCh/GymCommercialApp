@@ -10,3 +10,12 @@ export interface AdminDto {
   level: number;
   dateJoined?: string;
 }
+
+export interface SearchAdminCommand {
+  id: string;
+  name: string;
+}
+
+export interface DeleteAdminCommand{
+  id: string;
+}
