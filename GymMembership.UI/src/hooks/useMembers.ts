@@ -19,19 +19,24 @@ export function useMembers() {
         ? await membersApi.search({ name: searchTerm }) 
         : await membersApi.list();
       setMembers(results);
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (id: string) => {
-    if (!window.confirm("Delete member?")) return;
+    if (!window.confirm("Delete member?")) {
+      return;
+    }
     try {
       await membersApi.delete(id);
       setMembers(prev => prev.filter(m => m.id !== id));
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
     }
   };

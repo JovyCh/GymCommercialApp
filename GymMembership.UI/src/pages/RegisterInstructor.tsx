@@ -8,7 +8,6 @@ function RegisterInstructorForm() {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   
-  const [selectedPlanId, setSelectedPlanId] = useState(''); 
   const [password, setPassword] = useState('');
   
   const [certifications, setCertifications] = useState<string[]>([]);
@@ -28,7 +27,7 @@ function RegisterInstructorForm() {
     setCertifications(certifications.filter((_, index) => index !== indexToRemove));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
@@ -51,14 +50,15 @@ function RegisterInstructorForm() {
       setEmail('');
       setPhone('');
       setAddress('');
-      setSelectedPlanId('');
       setPassword('');
       setCertifications([]);
       setCertInput('');
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
       setMessage({ text: 'Failed to create instructor account.', isError: true });
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
   };
@@ -93,11 +93,6 @@ function RegisterInstructorForm() {
         <div>
           <label style={{ display: 'block', marginBottom: '5px' }}>Physical Address</label>
           <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} />
-        </div>
-
-        <div>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Membership Plan ID (Guid)</label>
-          <input type="text" value={selectedPlanId} onChange={(e) => setSelectedPlanId(e.target.value)} required style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} />
         </div>
 
         <div>

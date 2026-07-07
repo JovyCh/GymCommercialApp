@@ -6,6 +6,7 @@ export default function InstructorList() {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h2>Gym Instructors</h2>
+      
       <form onSubmit={handleSearch}>
         <input
           type = "text"
@@ -15,6 +16,7 @@ export default function InstructorList() {
         />
         <button type="submit">{loading ? 'Searching....' : 'Search'}</button>
       </form>
+
       <ul>
         {instructors.map(instructors => (
           <li key={instructors.id}>

@@ -1,7 +1,16 @@
 import axios from 'axios';
+import { instructorApi } from './instructorApi';
+import { membersApi } from './membersApi';
+import { adminApi } from './adminApi';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: 'https://localhost:7224/api',
 });
 
-export default axiosInstance;
+const agent = {
+  Admin: adminApi,
+  Members: membersApi,
+  Instructor: instructorApi
+};
+
+export default agent;

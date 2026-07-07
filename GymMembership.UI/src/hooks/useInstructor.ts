@@ -29,11 +29,14 @@ export function useInstructors() {
   }
 
   const handleDelete = async (id: string) => {
-    if (!window.confirm("Delete instructor?")) return;
+    if (!window.confirm("Delete instructor?")) {
+      return;
+    }
     try {
       await instructorApi.delete(id);
       setInstructors(prev => prev.filter(i => i.id !== id));
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
     }
   };

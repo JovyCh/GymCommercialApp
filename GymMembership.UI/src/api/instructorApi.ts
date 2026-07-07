@@ -1,4 +1,4 @@
-import axiosInstance from './axiosConfig';
+import { axiosInstance } from './axiosConfig';
 import type { AxiosResponse } from 'axios';
 import type { InstructorDto, RegisterInstructorCommand } from '../types/InstructorDto';
 

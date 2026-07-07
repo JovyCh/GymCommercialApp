@@ -1,4 +1,4 @@
-import axiosInstance from './axiosConfig';
+import { axiosInstance } from './axiosConfig';
 import type { AxiosResponse } from 'axios';
 import type { AdminDto } from '../types/AdminDto';
 
@@ -10,10 +10,6 @@ export const adminApi = {
 //   create: (cmd: CreateMemberCommand) => 
 //     axiosInstance.post<string>('/Members/register', cmd)
 //       .then((res: AxiosResponse<string>) => res.data),
-
-//   delete: (id: string) => 
-//     axiosInstance.delete<void>(`/Members/memberDelete/${id}`)
-//       .then((res: AxiosResponse<void>) => res.data),
 
   delete: (id:string) =>
     axiosInstance.delete<void>(`/Admin/deleteAdmin/${id}`)
