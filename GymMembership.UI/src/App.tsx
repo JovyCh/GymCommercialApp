@@ -6,6 +6,7 @@ import MemberList from './pages/MemberList';
 import AdminList from './pages/AdminList';
 import InstructorList from './pages/InstructorList';
 import RegisterInstructorForm from './pages/RegisterInstructor';
+import CreateAdminCommandForm from './pages/RegisterAdmin';
 
 function RegisterMemberForm() {
   const [name, setName] = useState('');
@@ -19,7 +20,7 @@ function RegisterMemberForm() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
 
-  const handleSubmit = async (e: React.SubmitEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
@@ -129,6 +130,10 @@ function App() {
         <Link to="/instructor/register" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
           📝 Register Instructor
         </Link>
+
+        <Link to="/admin/register" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>
+          📝 Create Admin
+        </Link>
       </nav>
 
       <Routes>
@@ -141,6 +146,8 @@ function App() {
         <Route path="/instructor" element={<InstructorList />} />
 
         <Route path="/instructor/register" element={<RegisterInstructorForm />} />
+        
+        <Route path="/admin/register" element={<CreateAdminCommandForm />} />
 
       </Routes>
     </Router>
