@@ -1,6 +1,6 @@
 import type { RegisterInstructorCommand } from "../types/InstructorDto";
 import { useState } from 'react';
-import agent from '../api/axiosConfig';
+import agent from '../api/agent';
 
 function RegisterInstructorForm() {
   const [name, setName] = useState('');

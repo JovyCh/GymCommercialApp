@@ -1,6 +1,6 @@
 import type { CreateAdminCommand } from "../types/AdminDto";
 import { useState } from 'react';
-import agent from '../api/axiosConfig';
+import agent from '../api/agent';
 
 function CreateAdminCommandForm() {
   const [name, setName] = useState("");
