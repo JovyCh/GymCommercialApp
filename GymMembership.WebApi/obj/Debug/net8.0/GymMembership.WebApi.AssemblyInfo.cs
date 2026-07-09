@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GymMembership.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92cc1bf8c7bff2f0989257ae8737568ced44d8db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9aadfe46fb466c918b04b44a627e6d65f195089")]
 [assembly: System.Reflection.AssemblyProductAttribute("GymMembership.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GymMembership.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

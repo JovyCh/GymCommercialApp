@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // 🌟 1. Import useNavigate
-import agent from '../api/agent'; // Make sure this path points to your new agent file!
+import { useNavigate } from 'react-router-dom';
+import agent from '../api/agent';
 
-function LoginForm() {
-  const navigate = useNavigate(); // 🌟 2. Initialize the navigation function
+interface LoginFormProps {
+  onLoginSuccess: (role: string) => void;
+}
+
+function LoginForm({ onLoginSuccess }: LoginFormProps) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,17 +23,27 @@ function LoginForm() {
 
       if (response.isSuccess) {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('userType', response.userType);
         
+        onLoginSuccess(response.userType);
+
         console.log("Login successful! Redirecting...");
         
         navigate('/home'); 
       } else {
         setError(response.errorMessage || "Invalid email or password.");
       }
-    } catch (err) {
-      console.error(err);
-      setError("Something went wrong. Please try again.");
-    } finally {
+    } 
+    catch (err: any) 
+    {
+      if (err.response && err.response.data && err.response.data.message) {
+          setError(err.response.data.message);
+      } 
+      else {
+        setError("Something went wrong. Please try again.");
+      }
+    } 
+    finally {
       setLoading(false);
     }
   };

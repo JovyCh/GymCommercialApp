@@ -117,7 +117,7 @@
         }
       }
     },
-    "/api/Admin/instructorAdmin/{id}": {
+    "/api/Admin/deleteAdmin/{id}": {
       "delete": {
         "tags": [
           "Admin"

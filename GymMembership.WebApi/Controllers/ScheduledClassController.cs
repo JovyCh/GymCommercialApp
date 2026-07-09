@@ -12,7 +12,7 @@ public class ScheduledClassController : ControllerBase
     {
         _mediator = mediator;
     }
-    [HttpPost("AdminCreateClass")]
+    [HttpPost("CreateClass")]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Guid))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateMembershipPlan([FromBody] CreateScheduledClassCommand command, CancellationToken cancellationToken)

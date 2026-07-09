@@ -33,7 +33,7 @@ public class AdminController : ControllerBase
 
         return Ok(result);
     }
-    [HttpDelete("instructorAdmin/{id:guid}")]
+    [HttpDelete("deleteAdmin/{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

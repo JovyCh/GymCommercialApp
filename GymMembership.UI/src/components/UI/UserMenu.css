@@ -1,0 +1,44 @@
+.user-menu-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-menu-text {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.user-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.user-badge.admin {
+  color: #ff4d4d;
+}
+
+.user-badge.instructor {
+  color: #ffaa00;
+}
+
+.user-badge.member {
+  color: #00bcd4;
+}
+
+.logout-button {
+  background: transparent;
+  color: crimson;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.logout-button:hover {
+  opacity: 0.8;
+}
